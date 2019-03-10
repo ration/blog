@@ -1,0 +1,27 @@
+remote_theme: "mmistakes/minimal-mistakes@4.15.2"
+plugins:
+  - jekyll-include-cache
+  - jekyll-paginate
+encoding: utf-8
+
+### minimal mistakes
+# logo: "/assets/img/face.jpg"
+title: "Tatu Lahtelas blog"
+name: "Tatu Lahtela"
+description: "Tatu Lahtelas personal blog"
+#defaults:
+  # _posts
+#   - scope:
+#       path: ""
+#      type: posts
+#    values:
+#      read_time: true
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+author:
+  name             : "Tatu Lahtela"
+  avatar           : "/assets/img/face.jpg"
+  bio              : "Software Engineer"
+  github           : "ration"
+  twitter          : "ttration"
+  linkedin         : "tatu-lahtela-38868a26?trk=nav_responsive_tab_profile_pic"
