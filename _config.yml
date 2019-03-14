@@ -2,6 +2,7 @@ theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-include-cache
   - jekyll-paginate
+  - jekyll-gist
 encoding: utf-8
 
 ### minimal mistakes

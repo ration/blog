@@ -1,11 +1,13 @@
 ---
 layout: single
+excerpt_separator: <!--more-->
 ---
-![Hereee’s a problem](jack_here.jpg)
-
 Everyone loves to lambaste the endless drudgery of the typical workday.
 Meetings, coworkers interrupting, inadequate equipment, Reddit.. It
 feels like the time goes to everything but the task at hand.
+<!--more-->
+![Hereee’s a problem](jack_here.jpg)
+
 
 But let’s put all that aside for a moment. You’re on your zone. No
 distractions or interruptions in sight. Not even Reddit. We spend a
@@ -82,7 +84,7 @@ Maybe I should try a job as a car mechanic?
 In the framework you wrap database operations into transactions like
 this:
 
-``` 
+```
 transaction {
  val dao = UserDao.find{ name eq someName }
  dao.password = newPass
@@ -98,7 +100,7 @@ Google to fix this.
 statement and that transaction is just a method with a lambda parameter.
 So the last example would be just:
 
-``` 
+```
 transaction {
  val dao = UserDao.find{ name eq someName }
  dao.password = newPass
@@ -241,7 +243,7 @@ Farming?
 Suddenly everything on the Angular side broke down. I
 got:
 
-``` 
+```
 ERROR in src/app/auth.interceptor.ts(6,2): error TS2345: Argument of type 'typeof AuthInterceptor' is not assignable to parameter of type '({ providedIn: Type<any> | "root"; } & ValueSansProvider)
 | ({ providedIn: Type<any> | "root"; } ...'.
 Type 'typeof AuthInterceptor' is not assignable to type '{ providedIn: Type<any> | "root"; } & ClassSansProvider'.
@@ -275,7 +277,7 @@ Park ranger?
 
 I had no luck doing Spring Integration tests, all I got was:
 
-``` 
+```
 java.lang.NoClassDefFoundError: org/hamcrest/SelfDescribing
 ```
 
@@ -284,9 +286,9 @@ Everywhere I looked everything was still at Gradle 3 and of no help.
 **Lesson Learned:** You can always open more search tabs. Endless
 googling got me to the correct magic:
 
-``` 
+```
 configurations {
-   integrationTestImplementation.extendsFrom testImplementation 
+   integrationTestImplementation.extendsFrom testImplementation
    integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
 }
 ```
@@ -351,7 +353,7 @@ now required when it wasn’t before kind of stuff. Especially how to set
 parameters to controllers seemed to differ wildly. I finally resolved it
 to something like this to pass paramaters to the controllers:
 
-``` 
+```
 TestBed.configureTestingModule({
   declarations: [GroupComponent],
   imports: [FormsModule, RouterTestingModule.withRoutes([]), HttpClientTestingModule],

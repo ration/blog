@@ -1,13 +1,16 @@
 ---
 layout: single
+excerpt_separator: <!--more-->
 ---
-
-![Angular on Tizen](angular_tizen.jpg)
 
 Time for some code obscura. I own a Samsung Gear S2 watch, which at this
 point is getting 3 years old. The newer models still use the same [Tizen
 SDK](https://developer.tizen.org/),
 so anything laid out here should work with those devices as well.
+<!--more-->
+
+![Angular on Tizen](angular_tizen.jpg)
+
 
 I had a small app in mind for the watch, but I didn’t like my options.
 Development for the watch can be done with either native C or as an Web
@@ -25,11 +28,11 @@ SDK](https://developer.tizen.org)
 (including the Command Line tools), and the [Angular
 CLI](https://cli.angular.io/)
 
-### Step 1: Creating an Angular project 
+### Step 1: Creating an Angular project
 
 First let’s create a new Angular 6 project and try it out:
 
-``` 
+```
 cd ~/git/
 ~/git/$ ng new angularTizenSample
 ~/git/$ cd angularTizenSample
@@ -39,14 +42,14 @@ cd ~/git/
 If everything went smoothly, you should see the Angular sample project.
 You can stop that, and let’s move on to the Tizen project.
 
-### Step 2: Creating a Tizen Web Project 
+### Step 2: Creating a Tizen Web Project
 
 The Tizen Studio is a bit flaky, so we’ll be using the command line
 tools to create a Tizen Web Project. Assuming you have the Tizen watch
 emulator up and running, let’s create a new project inside the Angular
 project and launch it:
 
-``` 
+```
 ~/git/angularTizenSample/$ tizen create web-project -p mobile-2.3.1 -t WebBasicApplication -n angularTizenSample
 ~/git/angularTizenSample/angularTizenSample/$ cd angularTizenSample
 ~/git/angularTizenSample/angularTizenSample/$ tizen build-web
@@ -65,12 +68,12 @@ From this project, we need the icon which we will move into src/assets,
 config.xml and .project files. We can delete everything else and rename
 this directory to simply “tizen”
 
-### Bridging the Gap 
+### Bridging the Gap
 
 Next, let’s alter the Angular project to accommodate the watch (some
 WebKit based) — let’s enable all polyfills in *polyfills.ts*:
 
-``` 
+```
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
 import 'core-js/es6/function';
@@ -99,7 +102,7 @@ tizen.png.
 
 *app.component.html*:
 
-``` 
+```
 <div style="text-align:center">
   <img width="360" height="360" alt="Angular Logo" (click)="changeImage()" src="}">
 </div>
@@ -107,7 +110,7 @@ tizen.png.
 
 *app.component.ts:*
 
-``` 
+```
 import  from '@angular/core';
 
 @Component({
@@ -131,7 +134,7 @@ export class AppComponent {
 }
 ```
 
-### Updating the Build Files 
+### Updating the Build Files
 
 Let’s update the build files so that a simple
 `npm run tizen `command will build
@@ -139,7 +142,7 @@ everything and create the Tizen package for us:
 
 Lets include all the configuration files for Tizen in *angular.json:*
 
-``` 
+```
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
@@ -173,7 +176,7 @@ Lets include all the configuration files for Tizen in *angular.json:*
 
 Build commands in *package.json:*
 
-``` 
+```
 {
   "name": "angular-tizen-sample",
   "version": "0.0.0",
@@ -200,9 +203,9 @@ the emulator (or device, depends what sdb points to):
 Angular on the emulator
 Running on an actual device you only need to follow the standard Tizen
 instructions — namely create a certificate, install it on your device
-and sign the wgt file. 
+and sign the wgt file.
 
-### Whats Next? 
+### Whats Next?
 
 The next step would be to use the [Tizen
 API](https://developer.tizen.org/ko/development/api-references/web-application?redirect=/dev-guide/4.0.0/org.tizen.web.apireference/html/device_api/mobile/tizen/tizen.html){.markup--anchor
@@ -215,7 +218,7 @@ Angular really shines when you hide the rather convoluted Tizen API
 related to phone communications under a service an simple offer a
 service for this functionality.
 
-### Notes 
+### Notes
 
 -   Debugging? You can use the Tizen Studio to start the project and
     even debug it from there, but as I said, it’s a bit flaky. The IDE

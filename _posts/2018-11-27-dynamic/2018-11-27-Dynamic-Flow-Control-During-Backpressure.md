@@ -1,14 +1,16 @@
 ---
 layout: single
 tags: [rxjava]
+excerpt_separator: <!--more-->
 ---
-![Photo by [John
-Gibbons](https://unsplash.com/photos/E2TVn-NpCU4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-on [Unsplash](https://unsplash.com/search/photos/dam?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)](dam.jpg)
-
 Do you have some kind of streaming source of data in your application?
 Notifications? Tweets? Messages? What happens if that source starts to
 produce data faster than your application can handle?
+<!--more-->
+
+![Photo by [John
+Gibbons](https://unsplash.com/photos/E2TVn-NpCU4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+on [Unsplash](https://unsplash.com/search/photos/dam?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)](dam.jpg)
 
 In [Reactive programmin](http://reactivex.io/)g when the client cannot
 handle the amount of data produced by the observable it is called

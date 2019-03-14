@@ -1,20 +1,18 @@
 ---
 layout: single
 tags: [performance]
+excerpt_separator: <!--more-->
 ---
-
-### My App is Too Slow, Now What? 
-
-![My App](sloth.jpg)
-
 You don’t have to be a software engineer for long until you hit into performance issues. The database loads too slow. Calculating the route
 takes forever. Remote calls hang. What to do?
+<!--more-->
+![My App](sloth.jpg)
 
 SQL query optimization? JS packing? Indices? Algorithm optimizations? Multi threading? Change to C++? Cloud? Micro services? Sharding? NoSQL? Remove features? Increase hardware requirements? Kernel optimizations? JIT loading? Load balancing? Remove variables? Use Protobuf? Better Compression? Change libraries? Change frameworks? GC tuning?
 
 There are a lot of ways speed up code and not all of them will be effective or worth the effort. But what’s the best option in your case? This is a vast specialized area where for example all the techniques listed above have their own experts if you happen to need one. Before you go and hire one, let’s go through some steps that may help you decide.
 
-### Step 1: Diagnosis 
+### Step 1: Diagnosis
 
 Diagnosing the problem is the obvious first step. It can be as simple as timing function calls, but usually it’s a better to fire up a profiler, something like the Chrome Developer Tools Profiles Pane or Java Mission Control, whatever the platform you’re on. There are a lot of
 p[erformance analysis tools](https://en.m.wikipedia.org/wiki/List_of_performance_analysis_tools) out there so go and find the one that is applicable to your needs. Take the time to learn how to use one and they’ll usually pinpoint you to the worst offender rather quickly.
@@ -33,7 +31,7 @@ Often the problem is as obvious as the fix, so grabbing these low
 hanging fruit can solve most of your woes. If it’s not obvious how and
 what to fix, keep reading.
 
-### Step 2: Understand Your Domain 
+### Step 2: Understand Your Domain
 
 ![Finnish conscripts testing the voting system in 2017](voting.jpg)
 
@@ -84,14 +82,14 @@ and they will add a huge layer of complexity to the
 system with added risk. Getting to a thousand is likely a matter of
 optimizing your database queries.
 
-### Step 3: Decide Course of Action 
+### Step 3: Decide Course of Action
 
 So the app is slow and you’ve diagnosed the problem. It’s that function
 that loads the data from the remote database. So how should you proceed?
 
 Here’s a domain agnostic questionnaire to narrow your options:
 
-#### Can I skip doing this completely? 
+#### Can I skip doing this completely?
 
 Seriously think about it. Even your ultra optimized algorithm is slower
 than my deleted code. Many of the greatest performance tricks like
@@ -103,14 +101,14 @@ Maybe some light weight version of it will suffice? Do you really really
 need the 7MB js library to load the 10MB SVG company logo that’s 10
 pixels across in the corner?
 
-#### Can I move it somewhere less expensive? 
+#### Can I move it somewhere less expensive?
 
 Maybe you have a computationally expensive list on the front page. Does
 everyone use it? If not, perhaps move it somewhere so only the people
 that really need it are inflicted. It can also save cycles on the back
 end.
 
-#### Can I do it only once? 
+#### Can I do it only once?
 
 Also known as caching. Doing something only once and then using the
 result is effective, but it’s also
@@ -125,13 +123,13 @@ out there.
 If your application has a long chain of computations, also consider
 caching the intermediary results. If you have the memory, use it.
 
-#### Can I do it partially? 
+#### Can I do it partially?
 
 This can be as simple as paging, or it can be limiting the amount of
 data shown to the user and requesting more data if the use requests it.
 See also JIT.
 
-#### Can I index it? 
+#### Can I index it?
 
 Indices are simplified an added data structure that speed up data
 retrieval. If your database queries are slow, SQL query optimization
@@ -144,7 +142,7 @@ nodes.
 The cost is maintaining the index and this usually means increased
 storage requirements and slower writes.
 
-#### Can I JIT? 
+#### Can I JIT?
 
 JIT (just in time) means delaying the loading of the data until it’s
 really required. This can be some form of lazy loading in the code (the
@@ -154,7 +152,7 @@ the, such as the
 [*RecyclerView*](https://developer.android.com/guide/topics/ui/layout/recyclerview). Almost all modern languages and frameworks have a
 variant of lazy loading, so look into it.
 
-#### Can I preload? 
+#### Can I preload?
 
 The opposite of JIT is loading a chunk data in advance. Is it more
 tolerable to have a single long pause as opposed to smaller stutters
@@ -162,7 +160,7 @@ here and there? If for example the hardware is limited, constant loading
 can be out of the question and a single long wait might be worth it if
 the UI is unusable garbage otherwise.
 
-#### Can I do it secretly? 
+#### Can I do it secretly?
 
 Splash screens. Everyone loves splash screens right? Well that’s not so
 secret, but doing stuff on the background when the user does something
@@ -173,7 +171,7 @@ The downside is synchronization —does someone else need the result of
 the computation? This will inevitably add complexity and introduce fun
 risks like dead locks.
 
-#### Can I do it concurrently? 
+#### Can I do it concurrently?
 
 This beast is also called multithreading. Can I split the problem into
 parts so that you can solve them in parallel and then gather the
@@ -183,7 +181,7 @@ Deadlocks, race conditions, Heisenbugs, synchronization issues, thread
 safety, testing challenges.. Fun times. If you’re not familiar with this
 already, turn back.
 
-#### Can I increase memory/cpu? 
+#### Can I increase memory/cpu?
 
 Sometimes there’s nothing wrong per se with the app, it just runs out of
 resources. If the OS runs out memory and it swaps, it’s going to be
@@ -197,7 +195,7 @@ multiple computers and use a load balancer. In the age of cloud
 computing, this can also can scale like magic and you do basically
 nothing (but pay).
 
-#### Can I guess ahead? 
+#### Can I guess ahead?
 
 Buffering.. Video is the obvious example, or
 [Spectre](https://en.wikipedia.org/wiki/Spectre_%28security_vulnerability%29) err.. I mean branch prediction in CPU architectures.
@@ -207,7 +205,7 @@ is going to do next.
 If you guess wrong, you waste cycles (or create security
 vulnerabilities).
 
-#### Can I tolerate errors? 
+#### Can I tolerate errors?
 
 The workable solution to any
 [NP-hard](https://en.wikipedia.org/wiki/NP-hardness) problem. Trying to solve it perfectly might be a
@@ -220,7 +218,7 @@ consistency](https://en.wikipedia.org/wiki/Eventual_consistency) of NoSQL databa
 optimistic and fixing the errors later can be a significant performance
 boost.
 
-#### Can I optimize the algorithm? 
+#### Can I optimize the algorithm?
 
 There’s never a shortage of things to do on the algorithm level. For
 example, look at the known subclasses of the
@@ -234,7 +232,7 @@ through a long list when a *HashMap* would’ve worked.
 There’s a lot to be done on the code level, and if your unit tests are
 solid, it should also be relatively safe. Again, YMMV.
 
-#### Can I reduce requests? 
+#### Can I reduce requests?
 
 Fetching data from a remote server is slow, very slow compare to your
 computer memory. The round trip to your data center more than [100
@@ -245,19 +243,19 @@ The downside of batching can be that the round trip time of a single
 request can increase, if the batching module waits for more data or the
 request size factors into it. YMMV.
 
-#### Can I use a dedicated text searching service? 
+#### Can I use a dedicated text searching service?
 
 Does your application have an internal text search that’s slow? Things
 like [Lucene](https://lucene.apache.org/core/) can feel like black magic if you have the memory to
 spare. Use them if you have the memory to spare.
 
-#### Can I split the database into more manageable chunks? 
+#### Can I split the database into more manageable chunks?
 
 Also known as
 [sharding](https://en.wikipedia.org/wiki/Shard_%28database_architecture%29). If your database has grown to a gigantic size
 perhaps this is an option. It comes with the caveat of added complexity.
 
-#### Can I compress it? 
+#### Can I compress it?
 
 Can I use something like
 [webpack](https://webpack.js.org/) to
@@ -266,18 +264,18 @@ network transfers? You can also look into things like [Protocol
 Buffers](https://developers.google.com/protocol-buffers/) if you are sure that the REST JSON overhead is too
 much.
 
-#### Can I change the framework or programming language? 
+#### Can I change the framework or programming language?
 
 I don’t know, can you? Would it help? Unless you’re on the Pi or similar
 limited hardware, this should be at the bottom of your list.
 
-#### Can I run serverless? 
+#### Can I run serverless?
 
 It solves all these problems and all the cool kids do this, so we should
 too, right? Well, maybe. I have no experience of this, tell me how it
 went if you do this!
 
-### What Else? 
+### What Else?
 
 Sometimes the problem is much more hairy — it persists only under
 heavier loads harder to reproduce or only on that gremlin infected
