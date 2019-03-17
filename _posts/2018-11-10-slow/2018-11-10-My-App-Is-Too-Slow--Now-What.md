@@ -1,7 +1,8 @@
 ---
-layout: single
+layout: post
 tags: [performance]
 excerpt_separator: <!--more-->
+comments: true
 ---
 You don’t have to be a software engineer for long until you hit into performance issues. The database loads too slow. Calculating the route
 takes forever. Remote calls hang. What to do?

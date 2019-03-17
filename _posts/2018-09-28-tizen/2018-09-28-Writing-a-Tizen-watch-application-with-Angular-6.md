@@ -1,6 +1,7 @@
 ---
-layout: single
+layout: post
 excerpt_separator: <!--more-->
+comments: true
 ---
 
 Time for some code obscura. I own a Samsung Gear S2 watch, which at this

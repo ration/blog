@@ -1,7 +1,8 @@
 ---
-layout: single
+layout: post
 tags: [rxjava]
 excerpt_separator: <!--more-->
+comments: true
 ---
 Do you have some kind of streaming source of data in your application?
 Notifications? Tweets? Messages? What happens if that source starts to

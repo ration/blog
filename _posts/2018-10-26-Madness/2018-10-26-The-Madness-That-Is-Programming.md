@@ -1,6 +1,7 @@
 ---
-layout: single
+layout: post
 excerpt_separator: <!--more-->
+comments: true
 ---
 Everyone loves to lambaste the endless drudgery of the typical workday.
 Meetings, coworkers interrupting, inadequate equipment, Reddit.. It
