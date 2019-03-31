@@ -12,19 +12,19 @@ name: "Tatu Lahtela"
 description: "Tatu Lahtelas personal blog"
 include:
   - _pages
-#defaults:
-  # _posts
-#   - scope:
-#       path: ""
-#      type: posts
-#    values:
-#      read_time: true
+defaults:
+   - scope:
+       path: ""
+       type: posts
+     values:
+      read_time: true
+      comments: true
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 author:
   name             : "Tatu Lahtela"
   avatar           : "/assets/img/face.jpg"
-  bio              : "Software Engineer"
+  bio              : "Programmer"
   github           : "ration"
   twitter          : "ttration"
   linkedin         : "tatu-lahtela-38868a26?trk=nav_responsive_tab_profile_pic"
