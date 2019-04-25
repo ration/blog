@@ -7,6 +7,7 @@ encoding: utf-8
 
 ### minimal mistakes
 # logo: "/assets/img/face.jpg"
+#minimal_mistakes_skin: "air"
 title: "Tatu Lahtelas blog"
 name: "Tatu Lahtela"
 description: "Tatu Lahtelas personal blog"
@@ -28,3 +29,5 @@ author:
   github           : "ration"
   twitter          : "ttration"
   linkedin         : "tatu-lahtela-38868a26?trk=nav_responsive_tab_profile_pic"
+
+highlighter: rouge
