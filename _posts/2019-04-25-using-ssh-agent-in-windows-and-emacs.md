@@ -81,4 +81,4 @@ Then in emacs I can read this file and set the environment variables in place in
 (load-agent-socket-env)
 {% endhighlight %}
 
-That it! Now Emacs is able to use the SSH Agent to use SSH keys.
+That's it! Now Emacs is able to use the SSH Agent to use SSH keys.
