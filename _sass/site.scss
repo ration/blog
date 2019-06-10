@@ -27,13 +27,6 @@
 }
 
 .tag-box.inline li {
-  float: left;
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 2.5;
-}
-
-.tag-box a {
   padding: 4px 6px;
   margin: 2px;
   background-color: #e6e6e6;
@@ -41,10 +34,7 @@
   -moz-border-radius: 4px;
   border-radius: 4px;
   text-decoration: none;
-}
 
-.tag-box a span {
-  vertical-align: super;
   font-size: 10px;
   font-size: 0.625rem;
 }

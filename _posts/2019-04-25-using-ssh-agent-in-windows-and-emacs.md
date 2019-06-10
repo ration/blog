@@ -56,6 +56,7 @@ Then in emacs I can read this file and set the environment variables in place in
   (interactive)
   (defvar pid_file (concat (getenv "TEMP") "\\" "ssh_agent.pid"))
   (if (file-exists-p pid_file)
+     (progn
       (setenv "SSH_AUTH_SOCK" (save-excursion
                                 (with-temp-buffer
                                   (insert-file-contents pid_file)
@@ -74,7 +75,7 @@ Then in emacs I can read this file and set the environment variables in place in
                                 (match-string 1)
                                 ))
             )
-    
+    )
     )
   )
 
