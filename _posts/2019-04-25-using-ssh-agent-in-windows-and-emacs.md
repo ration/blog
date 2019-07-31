@@ -11,7 +11,7 @@ My Windows workflow usually involves some Git in Emacs (magit) and Powershell us
 
 In %HOMEPATH%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 is have:
 
-{% highlight powershell %}
+{% highlight powershell %} 
 Import-Module 'C:\tatu\Apps\posh-git\src\posh-git.psd1'
 
 & {

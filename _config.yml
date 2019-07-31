@@ -1,8 +1,10 @@
 theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "dark"
 plugins:
   - jekyll-include-cache
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-feed
 encoding: utf-8
 
 ### minimal mistakes

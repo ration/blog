@@ -4,14 +4,12 @@ layout: single
 
 {{ content }}
 
-<div id="tags">
-  <ul class="tag-box inline">
-  {% for item in (0..page.tags.size) %}{% unless forloop.last %}
-    <li><span>{{ page.tags[item] }}</span></li>
-  {% endunless %}{% endfor %}
-  </ul>
- 
 
+<div id="tags" class="tag-box">
+  <i>Tagged under:</i>
+  {% for tags in page.tags %}
+    <a href="http://localhost:4000/tags/#{{tags}}">{{ tags }}</a> 
+  {% endfor %}
 </div>
 
 {% if page.comments %}
