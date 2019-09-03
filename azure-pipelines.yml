@@ -3,21 +3,38 @@
 # Add steps that build, test, save build artifacts, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
-
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Docker@0
-  displayName: 'Run Jekyll'
+- task: UseRubyVersion@0
   inputs:
-    containerRegistryType: 'Container Registry'
-    action: 'Run an image'
-    imageName: 'jekyll/builder:latest'
-    volumes: |
-      $(build.sourcesDirectory):/srv/jekyll
-      $(build.binariesDirectory):/srv/jekyll/_site
-    containerCommand: 'jekyll build --future'
-    detached: false
+    versionSpec: '>= 2.5'
+
+- script: |
+    gem install jekyll bundler
+    bundle install --retry=3 --jobs=4
+  displayName: 'bundle install'
+ 
+- script: |
+    bundle install
+    jekyll build
+  displayName: 'jekyll'
+ 
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '_site'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: site
+- task: AzureFileCopy@3
+  inputs:
+    SourcePath: '_site'
+    azureSubscription: 'Free Trial(b140050c-510b-4b56-8c37-709fcb192702)'
+    Destination: 'AzureBlob'
+    storage: 'lahtelablog'
+    ContainerName: '$web'
