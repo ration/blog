@@ -23,9 +23,9 @@ steps:
     echo "Updating"
     bundle update    
   displayName: 'jekyll update'
-
-- script: |
-    echo 'Building jekyll'
+  
+ - script: |
+    echo "Building jekyll"
     bundle exec jekyll build
     pwd
     ls 
