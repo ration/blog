@@ -20,6 +20,7 @@ steps:
   displayName: 'bundle install'
  
 - script: |
+    echo "Updating"
     bundle update
     echo 'Building jekyll'
     bundle exec jekyll build
