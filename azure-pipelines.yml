@@ -36,7 +36,7 @@ steps:
     artifactName: site
 - task: AzureFileCopy@3
   inputs:
-    SourcePath: '_site'
+    SourcePath: '$(Build.ArtifactStagingDirectory)'
     azureSubscription: 'Free Trial(b140050c-510b-4b56-8c37-709fcb192702)'
     Destination: 'AzureBlob'
     storage: 'lahtelablog'
