@@ -20,9 +20,8 @@ steps:
   displayName: 'bundle install'
  
 - script: |
-    bundle install
     bundle exec jekyll build
-  displayName: 'jekyll'
+  displayName: 'jekyll build'
  
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
