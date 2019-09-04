@@ -35,13 +35,9 @@ steps:
     contents: '_site/**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: site
 - task: AzureFileCopy@3
   inputs:
-    SourcePath: '$(Build.ArtifactStagingDirectory)'
+    SourcePath: '$(Build.ArtifactStagingDirectory)/_site/'
     azureSubscription: 'Free Trial(b140050c-510b-4b56-8c37-709fcb192702)'
     Destination: 'AzureBlob'
     storage: 'lahtelablog'
