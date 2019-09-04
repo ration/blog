@@ -19,9 +19,12 @@ steps:
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
  
-- script: |
+ - script: |
     echo "Updating"
-    bundle update
+    bundle update    
+  displayName: 'jekyll update'
+
+- script: |
     echo 'Building jekyll'
     bundle exec jekyll build
     pwd
