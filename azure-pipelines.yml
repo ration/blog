@@ -21,7 +21,10 @@ steps:
  
 - script: |
     bundle update
+    echo 'Building jekyll'
     bundle exec jekyll build
+    pwd
+    ls 
   displayName: 'jekyll build'
  
 - task: CopyFiles@2
