@@ -17,14 +17,12 @@ steps:
 - script: |
     gem install jekyll bundler
     bundle install --retry=3 --jobs=4
-  displayName: 'bundle install'
- 
- - script: |
+  displayName: 'bundle install' 
+- script: |
     echo "Updating"
     bundle update    
   displayName: 'jekyll update'
-  
- - script: |
+- script: |
     echo "Building jekyll"
     bundle exec jekyll build
     pwd
