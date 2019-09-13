@@ -1,0 +1,44 @@
+# Jekyll site
+# Package your Jekyll site using the jekyll/builder Docker container image.
+# Add steps that build, test, save build artifacts, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.5'
+
+- script: |
+    gem install jekyll bundler
+    bundle install --retry=3 --jobs=4
+  displayName: 'bundle install' 
+- script: |
+    echo "Updating"
+    bundle update    
+  displayName: 'jekyll update'
+- script: |
+    echo "Building jekyll"
+    bundle exec jekyll build
+    pwd
+    ls 
+  displayName: 'jekyll build'
+ 
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    contents: '_site/**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: AzureFileCopy@3
+  inputs:
+    SourcePath: '$(Build.ArtifactStagingDirectory)/_site/'
+    azureSubscription: 'Free Trial(b140050c-510b-4b56-8c37-709fcb192702)'
+    Destination: 'AzureBlob'
+    storage: 'lahtelablog'
+    ContainerName: '$web'
