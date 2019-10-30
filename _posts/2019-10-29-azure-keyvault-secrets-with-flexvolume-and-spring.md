@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Using Azure Keyvault Secrets as Spring Properties in Azure Kubernetes Servive
+title:  Using Azure Key Vault Secrets as Spring Properties in Azure Kubernetes Service
 date:   2019-10-29 10:53:10 +0300
 tags: [kubernetes, azure, docker, spring-boot]
 ---
