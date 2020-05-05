@@ -1,3 +1,3 @@
 # Blog
 
-Blog at <https://lahtela.me>
+Blog at <http://lahtela.me>

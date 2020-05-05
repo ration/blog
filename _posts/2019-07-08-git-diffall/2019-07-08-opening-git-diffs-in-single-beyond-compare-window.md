@@ -22,18 +22,26 @@ I'll also switch the tab order to make the changed file more visible in the tabs
 git config --global difftool.bc.cmd '\"c:/Program Files/Beyond Compare 4/bcomp.exe\" \"$REMOTE\" \"$LOCAL\"'
 ```
 
+The same for Linux:
+
+```
+git config --global difftool.bc3.cmd '"bcompare" "$REMOTE" "$LOCAL"'
+```
 
 
-Then well add a new git command `diffall`. So open your git installation directory and go to cmd dir: e.g. `C:\Program Files\Git\cmd\`
+Then well add a new git command `diffall`. So open your git installation directory and go to cmd dir: e.g. `C:\Program
+Files\Git\cmd\`. 
 
-Create a new file called _git-diffall_ (no extension):
+Create a new file called `git-diffall` (no extension):
 
 ```sh
 #!/bin/sh
- git diff --name-status | grep "^M" | awk '{ print $2; }' | while read filename; do
+git diff --name-status "$@" | grep "^M" | awk '{ print $2; }' | while read filename; do
     git difftool "$@" --no-prompt "$filename" &
 done
 ```
+
+On Linux this file can be e.g. `/usr/local/bin/git-diffall`
 
 You may need Administrator privileges to create that file.
 

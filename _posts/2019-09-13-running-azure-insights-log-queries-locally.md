@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Running Azure Insights Log Queries Locally
-date:   2019-09-13 08:50:22 +0300
+date:   2019-10-29 08:50:22 +0300
 tags:   azure, powershell
 ---
 
