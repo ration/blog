@@ -5,8 +5,8 @@ date:   2021-03-20 11:40:01 +0200
 tags:   [emacs]
 ---
 
-As I'm an active user of [vterm](https://github.com/akermu/emacs-libvterm), I've compile my own version of Emacs for a
-while to the the required submodules support. That said, I've also been on the bleeding edge native compiled
+As an active user of [vterm](https://github.com/akermu/emacs-libvterm), I've compiled my own version of Emacs for a
+while to have the required submodules support. That said, I've also been on the bleeding edge native compiled
 [GccEmacs](https://www.google.com/search?channel=fs&client=ubuntu&q=emacs+nativecomp) branch of Emacs just to see it's
 performance promises. While not 100% functional compared to its more stable counterparts, it still has been an
 worthwhile experiment. It promises natively compiled elisp, which in turn should result in faster Emacs. Once it reaches
@@ -17,7 +17,7 @@ feature parity, I suppose it's a direction Emacs will take.
 For me, no. I didn't do any benchmarks other than observed that the initial package load time was shaved a couple
 seconds (7->4s, 145 packages). If this is meaningful to you, check it out. The subjective experience is all that matters
 to me in this regard and any speedup must be considerably faster if the price is something breaking. And in day to day
-usage, I notice next to nothing.
+usage, I noticed next to nothing.
 
 Performance wise the biggest pain points for me are JSON, which I have to deal with a lot, and
 [lsp-mode](https://github.com/emacs-lsp/lsp-mode). Emacs 27, which I use if I'm not on the nativecomp branch, has better
