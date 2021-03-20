@@ -29,10 +29,10 @@ something that can be done to improve the performance of it, the solution is not
 Here is a short list of things that were broken on my setup:
 - ~~[straight.el](https://github.com/raxod502/straight.el) sometimes did not recompile broken versions I was stuck with
   a broken version of some package.~~ This persisted on 27, either this is a problem with straight.el or my own skills
-  since it was my own package [chore.el](https://github.com/ration/chore.el). Nevertheless fixed the offending change
-  from that (something about dash.el not working through the package).
-- magit branch deletion didn't know how to do it also on the remote. The prompt never came up.
-- [org-journal](https://github.com/bastibe/org-journal) didn't work. Didn't really ever debug this further (emacs 28
+  since it was my own package [chore.el](https://github.com/ration/chore.el). I nevertheless fixed the offending line
+  from it by dropping dash.el. I suspect my own skills.
+- magit branch deletion prompt didn't work on the remote branch. The prompt never came up.
+- [org-journal](https://github.com/bastibe/org-journal) didn't work. I didn't really ever debug this further (emacs 28
   thing in general or not).
 
 But recently (March 2021) it seems that now the pace of changes on 28 itself has exceeded the pace package maintainers
@@ -40,7 +40,7 @@ have been able to fix the breaking changes. When even straight.el gave up, it's 
 
 ## Going back to Emacs 27
 
-Just to have a clean enviroment I removed all installed packages and reinstalled them. Org mode prohibited me from
+Just to have a clean environment I removed all installed packages and reinstalled them. Only one breakage when downgrading: Org mode prohibited me from
 exiting Emacs 27 due to some deprecated function alias removal:
 
 ```elisp
