@@ -25,6 +25,7 @@ defaults:
       read_time: true
       comments: true
       share: true
+      classes: wide
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 author:
