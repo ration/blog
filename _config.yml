@@ -36,3 +36,4 @@ author:
   linkedin         : "tatu-lahtela-38868a26?trk=nav_responsive_tab_profile_pic"
 
 highlighter: rouge
+exclude: ["deploy.sh"]
