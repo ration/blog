@@ -13,6 +13,7 @@ encoding: utf-8
 title: "Tatu Lahtelas blog"
 name: "Tatu Lahtela"
 description: "Tatu Lahtelas personal blog"
+url: "https://lahtela.me"
 include:
   - _pages
 twitter:
