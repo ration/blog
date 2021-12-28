@@ -10,9 +10,9 @@ encoding: utf-8
 ### minimal mistakes
 # logo: "/assets/img/face.jpg"
 #minimal_mistakes_skin: "air"
-title: "Tatu Lahtelas blog"
+title: "Tatu Lahtela's blog"
 name: "Tatu Lahtela"
-description: "Tatu Lahtelas personal blog"
+description: "Tatu Lahtela's personal blog"
 url: "https://lahtela.me"
 include:
   - _pages
