@@ -5,6 +5,7 @@ plugins:
   - jekyll-paginate
   - jekyll-gist
   - jekyll-feed
+  - jemoji
 encoding: utf-8
 
 ### minimal mistakes
