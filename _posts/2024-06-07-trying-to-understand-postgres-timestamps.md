@@ -165,5 +165,6 @@ FROM max_work m,
 ```
 
 
-ChatGPT does a decent job creating at least a scaffolding of the query, but it invents syntax and functions so you still
-need to know what you are duing. And makes fun to debug castin issues, which was the inspiration for this post.
+ChatGPT does a decent job creating at least a scaffolding of queries like this, but it invents syntax and functions so
+you still need to know what you are duing. And makes fun to debug castin issues, which was the inspiration for this
+post.
