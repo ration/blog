@@ -20,7 +20,8 @@ CREATE TABLE Measurement(
 ```
 
 I will not get into details about the "TIMESTAMP WITH TIME ZONE" (spoiler: I will) type and it's hairy spots, you can go
-to [this yagabyte article](https://www.yugabyte.com/blog/postgresql-timestamps-timezones/) for that.
+to [this yagabyte article](https://www.yugabyte.com/blog/postgresql-timestamps-timezones/) or
+[EnterpriseDB](https://www.enterprisedb.com/postgres-tutorials/postgres-time-zone-explained) for that.
 
 Lets generate a six of months of data as in increasing series, one measurement per hour, on the hour. Let's ask ChatGPT
 to create the generate_series query, lazy as we are. ChatGPT (and Gemini) suggests to calculate the amount hour ours
